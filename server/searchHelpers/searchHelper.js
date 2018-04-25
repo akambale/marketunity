@@ -1,23 +1,8 @@
 const bestBuy = require('./bestbuy.js');
 const ebay = require('./ebay.js');
-const Promise = require('bluebird');
 
-var anon = function(searchString) {
-//   let bestBuyResults = [];
-//   let ebayResults =[];
-
-//   let blueBirdPromise = new Promise(function(resolve, reject) {
-//     ebayResults = ebay(searchString);
-//   });
-
-//   blueBirdPromise.then(
-//     bestBuyResults = bestBuy(searchString);
-//   );
-
-//TODO
-  //I need to get both best buy and ebay querys to run, THEN, I need to run bubblesortbyPrice
-
-  var bubbleSortByPrice = function(arr) {
+// module.exports = function(searchString) {
+  const bubbleSortByPrice = function(arr) {
 
     //do this loop as many times as there are elements in the array
     let x = 0;
@@ -40,6 +25,14 @@ var anon = function(searchString) {
   
     return arr;
   };
+
+  async function aggregateResults(searchString) {
+    let ebayResults = await ebay(searchString);
+    let bestBuyResults = await bestBuy(searchString);
+    
+    return ebayResults.concat(bestBuyResults);
+  }
   
-  return bubbleSortByPrice(ebayResults.concat(bestBuyResults));
+ return bubbleSortByPrice(aggregateResults(searchString));
 };
+

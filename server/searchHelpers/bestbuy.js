@@ -12,21 +12,22 @@ module.exports = function(searchString) {
             '))?apiKey=' + 
             apiKey.bestBuy +
             '&format=json';
-
-  axios.get(url).then(res => {
-    arr = res.data.products;
-  }).catch(error => {
-    console.log(error);
+  
+  return new Promise((resolve, reject) => {
+    axios.get(url).then(res => {
+      arr = res.data.products;
+      let results = arr.map(function(item) {
+        return {
+          name: item.name,
+          url: item.url,
+          price: item.salePrice,
+          image: item.largeFrontImage,
+          description: item.shortDescription
+        };
+      });
+      resolve(results);
+    }).catch(error => {
+      reject(err);
+    });
   });
-
-  return arr.map(function(item) {
-    return {
-      name: item.name,
-      url: item.url,
-      price: item.salePrice,
-      image: item.largeFrontImage,
-      description: item.shortDescription
-    };
-  });
-
 };
