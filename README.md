@@ -3,11 +3,10 @@ Armadillo Search is an open source web application that lists products from eBay
 
 ### [Live App](https://damp-badlands-35259.herokuapp.com/) 
 
-
 ### Team
-- __Product Owner:__ Phillip
-- __Scrum Master:__ Amogh
-- __Lead Developer:__ Eric
+- __Product Owner:__ [Phillip](https://github.com/th0s)
+- __Scrum Master:__ [Amogh](https://github.com/akambale)
+- __Lead Developer:__ [Eric](https://github.com/erichoonpark)
 - __Software Engineering:__ Eric, Phillip, Amogh
 
 
@@ -67,5 +66,13 @@ npm run webpack
 
 Start Server:
 ```sh
-npm run server-test
+npm start
 ```
+
+
+
+## Routes Diagrams
+
+![Alt text](https://github.com/Market-Unity/marketunity/blob/master/Routes.png?raw=true)
+
+![Alt text](https://github.com/Market-Unity/marketunity/blob/master/Routes2.png?raw=true)
